@@ -184,11 +184,11 @@ B=Variable('B')
 X=Variable('X')
 Y=Variable('Y')
 Z=Variable('Z')
-#If X and Y are related and Y and Z are related, X and Z are related
+#Rules to define what a grandmother is, logically
 RelationRule=Rule(Functor("IsNan",[Z,X]),[Functor("IsMum",[Z,Y]),Functor("IsMum",[Y,X])])
 RelationRule2=Rule(Functor("IsNan",[Z,X]),[Functor("IsMum",[Z,Y]),Functor("IsDad",[Y,X])])
 
-#Who is a grandmother
+#Who is a grandmother, apply our new rule to the knowledge base
 my_query=Query(Functor("IsNan",[A,B]))
 kb=KnowledgeBase([RelationRule,RelationRule2],[DansMum,MumsMum,DansDad,DadsMum])
 print([str(u) for u in kb.solve(my_query)])
