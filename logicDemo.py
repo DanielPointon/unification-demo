@@ -188,7 +188,7 @@ Z=Variable('Z')
 RelationRule=Rule(Functor("IsNan",[Z,X]),[Functor("IsMum",[Z,Y]),Functor("IsMum",[Y,X])])
 RelationRule2=Rule(Functor("IsNan",[Z,X]),[Functor("IsMum",[Z,Y]),Functor("IsDad",[Y,X])])
 
-#Who's Joel Related to?
+#Who is a grandmother
 my_query=Query(Functor("IsNan",[A,B]))
 kb=KnowledgeBase([RelationRule,RelationRule2],[DansMum,MumsMum,DansDad,DadsMum])
 print([str(u) for u in kb.solve(my_query)])
